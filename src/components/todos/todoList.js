@@ -1,29 +1,36 @@
-import Card from "antd/es/card/Card";
+
+import "./todoList.css"
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
 export default function TodoLists({ item, todoFunc }) {
   const [showInput, setShowInput] = useState(true);
+  const [imputVal, setInputVal] = useState(item.title);
 
   const editHandler = () => {
     setShowInput(false);
   };
 
+  const changeHandler = (e) => {
+    setInputVal(e.target.value);
+  }
+
 
   return (
-    <div style={{
-             width: '50%',backgroundColor:"#ede4c7",
-           }}>
-      <Card >
+    <div className="TodoCard">
+      <div className="myCard">
         {showInput ? (
-          <p>{item.title}</p>
+          <span>{item.title}</span>
         ) : (
           <input
-            value={item.title}
+          onChange={ changeHandler}
+            value={imputVal}
             autoFocus
             style={{ backgroundColor: "white" }}
           ></input>
         )}
+
+        <div  className="UpdatingOpt"> 
       <DeleteOutlined
         style={{ fontSize: 20, color: "#f00" }}
         onClick={() => todoFunc(item.id)}
@@ -32,7 +39,9 @@ export default function TodoLists({ item, todoFunc }) {
         style={{ fontSize: 20, color: "#00f" }}
         onClick={() => editHandler()}
       />
-      </Card>
+
+        </div>
+      </div>
     </div>
   );
 }
