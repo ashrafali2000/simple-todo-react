@@ -26,6 +26,7 @@ function App() {
     <div className="App">
       <Navbar  />
       <Searcher todoFunc = {addTodoHandler} />
+      <br></br>
        <Todos todo = {todos} todoFunc = {deleteHandler} />
    
     </div>
