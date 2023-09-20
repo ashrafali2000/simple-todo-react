@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Navbar from './components/navBar';
 import Searcher from './components/searcher';
 import Todos from './components/todos';
-let todo = [
 
-]
-
-
-
+let todo = []
 
 function App() {
    const [todos, setTodos] = useState(todo);
@@ -22,13 +18,25 @@ function App() {
     setTodos(updateTodo);
   }
 
+ 
+  const updateHandler = (val,id) => {
+    const updateTodo = todos.map(item =>{
+     if(item.id === id){
+      return {...item, title:val}
+     }
+     return item;
+    })
+    setTodos(updateTodo);
+  }
+
+
   return (
     <div className="App">
       <Navbar  />
       <Searcher todoFunc = {addTodoHandler} />
       <br></br>
-      
-       <Todos todo = {todos} todoFunc = {deleteHandler} />
+
+       <Todos todo = {todos} todoFunc = {deleteHandler} updateFunc={updateHandler} />
    
     </div>
   );
