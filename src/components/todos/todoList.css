@@ -8,6 +8,7 @@
   flex-direction: row;
   background-color: rgb(246, 231, 207);
   padding: 22px 30px;
+  border-radius: 10px;
 }
 .UpdatingOpt {
   width: 60px;
