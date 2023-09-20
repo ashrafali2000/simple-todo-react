@@ -9,6 +9,7 @@ export default function Searcher({ todoFunc }) {
   };
   const addHandler = () => {
     todoFunc(val);
+    setVal("")
   };
   return (
     <div
