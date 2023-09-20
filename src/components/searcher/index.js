@@ -21,7 +21,7 @@ export default function Searcher({ todoFunc }) {
     >
       <Space.Compact
         style={{
-          width: "50%",
+          width: "70%",
         }}
       >
         <Input type="text" onChange={changeHandler} value={val} />
