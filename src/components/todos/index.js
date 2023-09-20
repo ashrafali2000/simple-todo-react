@@ -6,6 +6,6 @@ export default function Todos({todo,todoFunc}) {
     justifyContent: "center",
     alignItems:"center",
     flexDirection:"column"}}>
-    {todo.map((item) => <TodoLists key={Math.random()} style={{display:"flex", justifyContent:"space-between", alignItems:"center"}} item = {item} todoFunc={todoFunc} />) }
+    {todo.map((item) => <TodoLists key={Math.random()}  item = {item} todoFunc={todoFunc} />) }
     </div>)
 }
